@@ -12,7 +12,7 @@ FUNCION Editar Perfil ---> dejar editar
 # SIGNUP
 
 FUNCION rellenar form\
-FUNCION confirmar mail
+FUNCION invitar amigos
 
 # LOGIN
 
