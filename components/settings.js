@@ -1,8 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import { View, Button, Text, TextInput } from 'react-native';
+import styles from './Estilos';
+
 
 export function editarperfil(){
-    return (<View>
+    return (<View style={styles.container}>
         <Button title="Cargar foto de perfil" onPress={() => Alert.alert("Nos vemos en el TP 10!!!")}/>
         <TextInput placeholder="Nombre" defaultValue="Gabriel"/>
         <TextInput placeholder="Apellido" defaultValue="Stancanelli"/>
@@ -12,7 +14,7 @@ export function editarperfil(){
   
 export function verperfil(){
     const navigation = useNavigation();
-    return (<View>
+    return (<View style={styles.container}>
         <Image source={{uri: "https://recursos.ort.edu.ar/static/archivos/usuarioperfil/22609"}}/>
         <Text>Gabriel Stancanelli</Text>
         <Text>Stanca</Text>

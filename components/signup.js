@@ -1,9 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
 import { View, Button, Text, TextInput } from 'react-native';
+import styles from './Estilos';
+
 
 export function rellenarform(){
   const navigation = useNavigation();
-  return (<View>
+  return (<View style={styles.container}>
     <TextInput placeholder="Nombre"/>
     <TextInput placeholder="Apellido"/>
     <TextInput placeholder="Email"/>
@@ -15,7 +17,7 @@ export function rellenarform(){
   
 export function invitaramigos(){
   const navigation = useNavigation();
-  return (<View>
+  return (<View style={styles.container}>
     <Text>Opcional: Ingresá el email de 3 amigos para participar en el sorteo de una play</Text>
     <TextInput placeholder="Amigo 1"/>
     <TextInput placeholder="Amigo 2"/>
