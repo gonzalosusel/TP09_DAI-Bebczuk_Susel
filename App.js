@@ -6,69 +6,70 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 import styles from './components/Estilos.js';
 
-import { saludar, todolist } from "./components/home.js";
-import { verperfil, editarperfil } from "./components/settings.js";
-import { rellenarform, invitaramigos } from "./components/signup.js";
-import { iniciarsesion, recuperarcuenta } from "./components/login.js";
+import { Saludar, Todolist } from "./components/home.js";
+import { Verperfil, Editarperfil } from "./components/settings.js";
+import { Rellenarform, Invitaramigos } from "./components/signup.js";
+import { Iniciarsesion, Recuperarcuenta } from "./components/login.js";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const homeStack = createNativeStackNavigator();
 const settingsStack = createNativeStackNavigator();
 const signupStack = createNativeStackNavigator();
 const loginStack = createNativeStackNavigator();
 
-function home() {
+function Home() {
   return (
     <homeStack.Navigator>
-      <homeStack.Screen name="Saludar" component={saludar} />
-      <homeStack.Screen name="ToDo list" component={todolist} />
+      <homeStack.Screen name="Saludar" component={Saludar} />
+      <homeStack.Screen name="ToDo list" component={Todolist} />
     </homeStack.Navigator>
   );
 }
 
-function settings() {
+function Settings() {
   return (
     <settingsStack.Navigator>
-      <settingsStack.Screen name="Ver perfil" component={verperfil} />
-      <settingsStack.Screen name="Editar perfil" component={editarperfil} />
+      <settingsStack.Screen name="Ver perfil" component={Verperfil} />
+      <settingsStack.Screen name="Editar perfil" component={Editarperfil} />
     </settingsStack.Navigator>
   );
 }
 
-function signup() {
+function Signup() {
   return (
     <signupStack.Navigator>
-      <signupStack.Screen name="Registrarse" component={rellenarform} />
-      <signupStack.Screen name="Invitar Amigos" component={invitaramigos} />
+      <signupStack.Screen name="Registrarse" component={Rellenarform} />
+      <signupStack.Screen name="Invitar Amigos" component={Invitaramigos} />
     </signupStack.Navigator>
   );
 }
 
-function login() {
+function Login() {
   return (
     <loginStack.Navigator>
-      <loginStack.Screen name="Iniciar sesión" component={iniciarsesion} />
-      <loginStack.Screen name="Recuperar cuenta" component={recuperarcuenta} />
+      <loginStack.Screen name="Iniciar sesión" component={Iniciarsesion} />
+      <loginStack.Screen name="Recuperar cuenta" component={Recuperarcuenta} />
     </loginStack.Navigator>
   );
 }
 
 const Tab = createBottomTabNavigator();
-function Tabs(){
-  <Tab.Navigator>
-    <Tab.Screen name="Home" component="home" options={{tabBarIcon: ({color}) => <Ionicons name="home" size={24} color={color}/>}}/>
-    <Tab.Screen name="Settings" component="settings" options={{tabBarIcon: ({color}) => <Ionicons name="settings" size={24} color={color}/>}}/>
-    <Tab.Screen name="Signup" component="signup" options={{tabBarIcon: ({color}) => <Ionicons name="person" size={24} color={color}/>}}/>
-    <Tab.Screen name="Login" component="login" options={{tabBarIcon: ({color}) => <Ionicons name="log-in" size={24} color={color}/>}}/>
-  </Tab.Navigator>
-}
-
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Text>Hola</Text>
+
+      <SafeAreaView>
+        <Text>Hola</Text>
+      </SafeAreaView>
+
       <NavigationContainer>
-        <Tabs/>
+      <Tab.Navigator style={{display: "flex"}}>
+        <Tab.Screen name="Home" component={Home} options={{title: "Home", tabBarIcon: ({color}) => <Ionicons name="home" size={24} color={color}/>}}/>
+        <Tab.Screen name="Settings" component={Settings} options={{title: "Settings", tabBarIcon: ({color}) => <Ionicons name="settings" size={24} color={color}/>}}/>
+        <Tab.Screen name="Signup" component={Signup} options={{title: "Sign up", tabBarIcon: ({color}) => <Ionicons name="person" size={24} color={color}/>}}/>
+        <Tab.Screen name="Login" component={Login} options={{title: "Log in", tabBarIcon: ({color}) => <Ionicons name="log-in" size={24} color={color}/>}}/>
+      </Tab.Navigator>
       </NavigationContainer>
     </View>
   );
