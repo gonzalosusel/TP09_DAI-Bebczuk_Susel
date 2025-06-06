@@ -45,10 +45,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 8,
         elevation: 1,
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        shadowOffset: { width: 0, height: 2 },
+        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
     },
 
     // Campo de texto (TextInput)

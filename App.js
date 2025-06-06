@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
+import styles from './components/Estilos.js';
 
 import { saludar, todolist } from "./components/home.js";
 import { verperfil, editarperfil } from "./components/settings.js";
@@ -53,7 +54,7 @@ function login() {
 
 const Tab = createBottomTabNavigator();
 function Tabs(){
-  <Tab.Navigator>j
+  <Tab.Navigator>
     <Tab.Screen name="Home" component="home" options={{tabBarIcon: ({color}) => <Ionicons name="home" size={24} color={color}/>}}/>
     <Tab.Screen name="Settings" component="settings" options={{tabBarIcon: ({color}) => <Ionicons name="settings" size={24} color={color}/>}}/>
     <Tab.Screen name="Signup" component="signup" options={{tabBarIcon: ({color}) => <Ionicons name="person" size={24} color={color}/>}}/>
@@ -72,12 +73,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
